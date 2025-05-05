@@ -1,9 +1,13 @@
+import random
+
 ##Task 1
 def task1_game():
 
     print("Welcome to Wordle! You have 6 attempts to guess the correct 5-letter word!")
+    print("If you want to quit the game you can type 'quit' ")
 
-    secret_word = "phone"
+    word_list = ["phone", "paper", "apple"]
+    secret_word = random.choice(word_list)
 
     max_attempt = 6
     attempt = 0
@@ -11,6 +15,8 @@ def task1_game():
 
     while attempt < max_attempt:
         player_guess = input("Please enter your guess: ").lower() #lower case upper case fixed here
+        if player_guess == "quit":
+            break
 
         if len(player_guess) != 5:
             print("Please enter exactly 5 charactersi no more no less.")
@@ -51,6 +57,7 @@ def task1_game():
             print(f"Wrong guess, remaining guesses: {remaining_attempt}")
 
     print(f"Game finished, the word was: {secret_word}")
+    print("")
 
 task1_game()
 
