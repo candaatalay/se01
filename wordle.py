@@ -53,6 +53,8 @@ def task1_game():
                 for pos in correct_position:
                     print(pos, end=' ')
                 print() #simplified version to see why "none" isnt working, and still not working check later
+            else:
+                print("These letter positions are already correct: none.")
         
             print(f"Wrong guess, remaining guesses: {remaining_attempt}")
 
