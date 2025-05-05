@@ -27,15 +27,26 @@ def task1_game():
             #hint 1:
             correct_letters = [letter for letter in player_guess if letter in secret_word]
             #if letters in player_guess match to letters in secret_word
+            
 
             if correct_letters:
-                print("These letters exist in the word:", ", ".join(set(correct_letters)) if correct_letters else "none") 
+                print("These letters exist in the word:")
+                for letter in correct_letters:
+                    print(letter, end=' ')
+                print()  #simplified version to see why "none" isnt working
             
             #hint 2:
-            correct_position = [str(i + 1) for i in range(5) if player_guess[i] == secret_word[i]] #else(none) part not working here, check back later
-            if correct_position:
-                print("These letter positions are already correct:", ", " .join(set(correct_position))) 
+            correct_position = []
+            for i in range(5):
+                if player_guess[i] == secret_word[i]:
+                    correct_position.append(str(i + 1))
+            #if guessed letter exists in secret word print position of string
 
+            if correct_position:
+                print("These letter positions are already correct:")
+                for pos in correct_position:
+                    print(pos, end=' ')
+                print() #simplified version to see why "none" isnt working, and still not working check later
         
             print(f"Wrong guess, remaining guesses: {remaining_attempt}")
 
